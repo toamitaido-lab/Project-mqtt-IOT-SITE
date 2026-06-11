@@ -22,7 +22,7 @@ Ce document présente l'analyse des risques de cybersécurité liés à notre in
   3. Mettre en place des certificats clients (X.509) pour s'assurer que seuls nos capteurs (publishers) peuvent envoyer des données.
 
 ## 3. Déni de Service (DoS) et Saturation de la Base de Données
-**Niveau de criticité : Moyen / Élevé**
+**Importance : Moyen / Élevé**
 
 * **Le Problème :** Le `subscriber.py` écoute le topic et insère *chaque* message reçu dans la base SQLite. Un attaquant peut créer une boucle infinie et publier 10 000 messages par seconde sur notre topic. Le script Python va tenter de tout écrire, ce qui va saturer le CPU, remplir le disque dur avec une base de données gigantesque, et potentiellement faire planter le tableau de bord PHP.
 * **La Remédiation :**
